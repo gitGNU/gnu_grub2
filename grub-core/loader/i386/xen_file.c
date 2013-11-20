@@ -57,7 +57,8 @@ grub_xen_file (grub_file_t file)
 		+ lh.payload_offset,
 		(unsigned long long) lh.payload_length);
 
-  off_file = grub_file_offset_open (file, (lh.setup_sects + 1) * 512
+  off_file = grub_file_offset_open (file, GRUB_FILE_TYPE_LINUX_KERNEL,
+				    (lh.setup_sects + 1) * 512
 				    + lh.payload_offset,
 				    lh.payload_length);
   if (!off_file)
